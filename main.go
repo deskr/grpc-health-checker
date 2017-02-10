@@ -12,7 +12,7 @@ import (
 )
 
 const Name = "grpc-health-checker"
-const Version = "0.1.0"
+const Version = "0.1.1"
 
 var addr = flag.String("address", "", "Address of GRPC service")
 var service = flag.String("service", "", "Name of service")
@@ -33,7 +33,7 @@ func main() {
 
 	conn, err := grpc.Dial(*addr, grpc.WithInsecure())
 	if err != nil {
-		fmt.Println("Dial error:", err)
+		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
 
@@ -43,13 +43,14 @@ func main() {
 		Service: *service,
 	})
 	if err != nil {
-		fmt.Println("Check error:", err)
+		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
-
-	fmt.Println("Status:", res.Status)
 
 	if res.Status != health.HealthCheckResponse_SERVING {
+		fmt.Fprintf(os.Stderr, "Status: %v\n", res.Status)
 		os.Exit(1)
 	}
+
+	fmt.Fprintf(os.Stdout, "Status: %v\n", res.Status)
 }
