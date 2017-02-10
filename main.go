@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/deskr/grpc-health-checker/health"
+	health "github.com/deskr/grpc-health-checker/grpc_health_v1"
 
 	"google.golang.org/grpc"
 )

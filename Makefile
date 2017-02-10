@@ -15,7 +15,7 @@ deps:
 	-glide install
 
 proto:
-	protoc --go_out=plugins=grpc:. health/health.proto
+	protoc --go_out=plugins=grpc:. grpc_health_v1/health.proto
 
 deps-update:
 	glide update
