@@ -1,0 +1,4 @@
+dist
+vendor/
+update.lock
+.DS_Store

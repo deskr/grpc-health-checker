@@ -1,0 +1,36 @@
+hash: f8a5b765ba02d962ed1d6da6e3d443669790df6bd11cdcded728e7cfe2f4cdd6
+updated: 2017-02-10T13:26:01.253905511+01:00
+imports:
+- name: bitbucket.org/deskr/rpcutil-go
+  version: 591b664680900105bca82ccb8500444dd622ab2e
+  repo: git@bitbucket.org:deskr/rpcutil-go.git
+  subpackages:
+  - health
+- name: github.com/golang/protobuf
+  version: 8ee79997227bf9b34611aee7946ae64735e6fd93
+  subpackages:
+  - proto
+- name: golang.org/x/net
+  version: a689eb3bc4b53af70390acc3cf68c9f549b6b8d6
+  subpackages:
+  - context
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - lex/httplex
+  - trace
+- name: google.golang.org/grpc
+  version: 708a7f9f3283aa2d4f6132d287d78683babe55c8
+  subpackages:
+  - codes
+  - credentials
+  - grpclog
+  - internal
+  - metadata
+  - naming
+  - peer
+  - stats
+  - tap
+  - transport
+testImports: []
