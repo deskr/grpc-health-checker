@@ -1,4 +1,4 @@
-package: bitbucket.org/deskr/grpc-health-checker
+package: github.com/deskr/grpc-health-checker
 import:
 - package: google.golang.org/grpc
   version: v1.0.5

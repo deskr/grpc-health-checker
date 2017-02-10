@@ -1,11 +1,6 @@
-hash: f8a5b765ba02d962ed1d6da6e3d443669790df6bd11cdcded728e7cfe2f4cdd6
-updated: 2017-02-10T13:26:01.253905511+01:00
+hash: d1a8c56619807f1a57cf17472e0c6c0b02603a5a1e095b8fa7a27af50af716ae
+updated: 2017-02-10T18:38:23.148251021+01:00
 imports:
-- name: bitbucket.org/deskr/rpcutil-go
-  version: 591b664680900105bca82ccb8500444dd622ab2e
-  repo: git@bitbucket.org:deskr/rpcutil-go.git
-  subpackages:
-  - health
 - name: github.com/golang/protobuf
   version: 8ee79997227bf9b34611aee7946ae64735e6fd93
   subpackages:
