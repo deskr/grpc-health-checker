@@ -20,9 +20,10 @@ build: data
 	go build -o dist/$(NAME) .
 
 release:
-	@mkdir -p releases/v$(VERSION)/linux_amd64
+	@mkdir -p releases
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o $(NAME)
-	@mv $(NAME) releases/v$(VERSION)/linux_amd64/
+	tar -cvzf releases/$(NAME)_v$(VERSION)_linux_amd64.tar.gz $(NAME)
+	rm $(NAME)
 
 test:
 	go test ./
