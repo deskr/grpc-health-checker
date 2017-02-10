@@ -2,15 +2,20 @@ TEST = $$(go list ./... | grep -v '/vendor/')
 NAME = $(shell awk -F\" '/^const Name/ { print $$2 }' main.go)
 VERSION = $(shell awk -F\" '/^const Version/ { print $$2 }' main.go)
 
-all: clean deps build release
+all: clean deps build release proto
 
 clean:
 	rm -rf dist/
 
 deps:
 	go get -u github.com/Masterminds/glide
+	go get -u github.com/golang/protobuf/proto
+	go get -u github.com/golang/protobuf/protoc-gen-go
 	-glide create
 	-glide install
+
+proto:
+	protoc --go_out=plugins=grpc:. health/health.proto
 
 deps-update:
 	glide update

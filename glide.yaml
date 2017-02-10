@@ -1,8 +1,4 @@
 package: bitbucket.org/deskr/grpc-health-checker
 import:
-- package: bitbucket.org/deskr/rpcutil-go
-  repo: git@bitbucket.org:deskr/rpcutil-go.git
-  subpackages:
-  - health
 - package: google.golang.org/grpc
   version: v1.0.5

@@ -3,11 +3,11 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"os"
 
-	"fmt"
+	"github.com/deskr/grpc-health-checker/health"
 
-	"bitbucket.org/deskr/rpcutil-go/health"
 	"google.golang.org/grpc"
 )
 
