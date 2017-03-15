@@ -5,14 +5,15 @@ import (
 	"flag"
 	"fmt"
 	"os"
-
-	health "github.com/deskr/grpc-health-checker/grpc_health_v1"
+	"time"
 
 	"google.golang.org/grpc"
+
+	health "github.com/deskr/grpc-health-checker/grpc_health_v1"
 )
 
 const Name = "grpc-health-checker"
-const Version = "0.1.2"
+const Version = "0.1.3"
 
 var addr = flag.String("address", "", "Address of GRPC service")
 var service = flag.String("service", "", "Name of service")
@@ -33,7 +34,9 @@ func main() {
 
 	conn, err := grpc.Dial(*addr,
 		grpc.WithInsecure(),
-		grpc.WithBlock())
+		grpc.WithBlock(),
+		grpc.WithTimeout(time.Second*3),
+		grpc.FailOnNonTempDialError(true))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
