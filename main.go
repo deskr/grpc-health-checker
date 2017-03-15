@@ -12,7 +12,7 @@ import (
 )
 
 const Name = "grpc-health-checker"
-const Version = "0.1.1"
+const Version = "0.1.2"
 
 var addr = flag.String("address", "", "Address of GRPC service")
 var service = flag.String("service", "", "Name of service")
@@ -31,11 +31,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	conn, err := grpc.Dial(*addr, grpc.WithInsecure())
+	conn, err := grpc.Dial(*addr,
+		grpc.WithInsecure(),
+		grpc.WithBlock())
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
+	defer conn.Close()
 
 	client := health.NewHealthClient(conn)
 
